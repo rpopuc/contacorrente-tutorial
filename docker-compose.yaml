@@ -1,0 +1,21 @@
+services:
+  app:
+    container_name: contacorrente-app
+    build:
+      context: .docker/build/app
+    volumes:
+      - ./src/:/var/www/
+    working_dir: /var/www/
+    ports:
+      - 8080:80
+
+  database:
+    container_name: contacorrente-database
+    image: postgres:14.19
+    volumes:
+      - ./.docker/data/postgres:/var/lib/postgresql/data
+      - ./src/:/var/www/
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=app
