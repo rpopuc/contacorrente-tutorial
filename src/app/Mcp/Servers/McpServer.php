@@ -2,6 +2,7 @@
 
 namespace App\Mcp\Servers;
 
+use App\Mcp\Tools\ListTransactionsTool;
 use App\Mcp\Tools\UserInfoTool;
 use Laravel\Mcp\Server;
 
@@ -35,7 +36,8 @@ class McpServer extends Server
      * @var array<int, class-string<\Laravel\Mcp\Server\Tool>>
      */
     protected array $tools = [
-        UserInfoTool::class
+        UserInfoTool::class,
+        ListTransactionsTool::class,
     ];
 
     /**
